@@ -14,7 +14,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "openstax_swagger"
+require "openstax_openapi"
 
 module Dummy
   class Application < Rails::Application

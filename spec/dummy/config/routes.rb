@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount OpenStax::Swagger::Engine => "/openstax_swagger"
+  mount OpenStax::OpenApi::Engine => "/openstax_openapi"
 end

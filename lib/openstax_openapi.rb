@@ -1,7 +1,7 @@
-require "openstax/swagger/engine"
+require "openstax/openapi/engine"
 
 module OpenStax
-  module Swagger
+  module OpenApi
 
     def self.configure
       yield configuration
@@ -9,6 +9,10 @@ module OpenStax
 
     def self.configuration
       @configuration ||= Configuration.new
+    end
+
+    def self.build_root_json(binding)
+      Swagger::Blocks.build_root_json(binding)
     end
 
     class Configuration
@@ -29,11 +33,10 @@ module OpenStax
         }
       end
     end
-
   end
 end
 
 require "swagger/blocks"
-require "openstax/swagger/record_extensions"
-require "openstax/swagger/swagger_blocks_extensions"
-require "openstax/swagger/bind"
+require "openstax/openapi/record_extensions"
+require "openstax/openapi/blocks"
+require "openstax/openapi/bind"

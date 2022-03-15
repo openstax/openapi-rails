@@ -1,17 +1,16 @@
-module SwaggerPathAndParametersSchema2
-  include Swagger::Blocks
-  include OpenStax::Swagger::SwaggerBlocksExtensions
+module OpenApiPathAndParametersSchema2
+  include OpenStax::OpenApi::Blocks
 
-  swagger_root do
-    key :swagger, '2.0'
+  openapi_root do
+    key :openapi, '3.0.0'
   end
 
-  swagger_path '/stembolts' do
+  openapi_path '/stembolts' do
     operation :post do
     end
   end
 
-  swagger_path_and_parameters_schema '/stembolts' do
+  openapi_path_and_parameters_schema '/stembolts' do
     operation :get do
       key :summary, 'A summary'
       key :operationId, 'getStembolts'

@@ -1,10 +1,17 @@
-module OpenStax::Swagger::SwaggerBlocksExtensions
+module OpenStax::OpenApi::Blocks
 
   def self.included(base)
+     base.class_eval do
+       include Swagger::Blocks
+       singleton_class.send(:alias_method, :openapi_root, :swagger_root)
+       singleton_class.send(:alias_method, :openapi_path, :swagger_path)
+       singleton_class.send(:alias_method, :openapi_component, :swagger_component)
+    end
     base.extend(ClassMethods)
   end
 
   module ClassMethods
+
     def add_properties(*schema_names, &block)
       node = @swagger_components_node || swagger_component {}
       schema_names.each do |schema_name|
@@ -24,7 +31,7 @@ module OpenStax::Swagger::SwaggerBlocksExtensions
     end
     # Same as call to `swagger_path` but also generates a `swagger_schema` for the parameters
     # so that controller code can bind the parameters to a binding.
-    def swagger_path_and_parameters_schema(path, &block)
+    def openapi_path_and_parameters_schema(path, &block)
       swagger_path(path, &block).tap do |path_node|
         # When this is the first call against this `path`, the path_node is a `PathNode`
         # wrapping one `OperationNode`.  Afterwards it is an `OperationNode`.  This case

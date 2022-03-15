@@ -1,14 +1,14 @@
 require 'open-uri'
 require 'fileutils'
 
-module OpenStax::Swagger::SwaggerCodegen
+module OpenStax::OpenApi::Codegen
 
   # You can find flags for various configs by running:
   # swagger-codegen config-help -l <language>
 
   def self.execute(api_major_version)
 
-    swagger_data = OpenStax::Swagger.configuration.json_proc.call(api_major_version)
+    swagger_data = OpenStax::OpenApi.configuration.json_proc.call(api_major_version)
 
     options = yield swagger_data
 

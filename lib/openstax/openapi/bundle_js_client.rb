@@ -1,4 +1,4 @@
-module OpenStax::Swagger::BundleJsClient
+module OpenStax::OpenApi::BundleJsClient
 
   def self.bundle(options)
     system('npm install') or raise 'npm install failed, is npm avail?'
@@ -17,7 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
     filename: '[name].js',
-    library: 'OpenStaxSwaggerClient',
+    library: 'OpenStaxOpenApiClient',
     libraryTarget: 'umd',
     globalObject: "typeof self !== 'undefined' ? self : this"
   },

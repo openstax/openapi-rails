@@ -13,7 +13,7 @@ rails_version =
 
 gem "rails", rails_version
 
-# Declare your gem's dependencies in openstax_swagger.gemspec.
+# Declare your gem's dependencies in openstax_openapi.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec

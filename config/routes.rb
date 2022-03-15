@@ -1,2 +1,2 @@
-OpenStax::Swagger::Engine.routes.draw do
+OpenStax::OpenApi::Engine.routes.draw do
 end

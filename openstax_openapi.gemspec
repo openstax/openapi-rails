@@ -1,17 +1,17 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "openstax/swagger/version"
+require "openstax/openapi/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "openstax_swagger"
-  spec.version     = OpenStax::Swagger::VERSION
+  spec.name        = "openstax_openapi"
+  spec.version     = OpenStax::OpenApi::VERSION
   spec.authors     = ["JP Slavinsky"]
   spec.email       = ["jpslav@gmail.com"]
-  spec.homepage    = "https://github.com/openstax/swagger-rails"
-  spec.summary     = "OpenStax-specific use of swagger-blocks for Rails projects"
-  spec.description = "OpenStax-specific use of swagger-blocks for Rails projects"
+  spec.homepage    = "https://github.com/openstax/openapi-rails"
+  spec.summary     = "OpenStax-specific use of openapi-blocks for Rails projects"
+  spec.description = "OpenStax-specific use of openapi-blocks for Rails projects"
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

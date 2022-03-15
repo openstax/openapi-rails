@@ -1,4 +1,4 @@
-# OpenstaxSwagger
+# OpenstaxOpenApi
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'openstax_swagger'
+gem 'openstax_openapi'
 ```
 
 And then execute:
@@ -18,13 +18,13 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install openstax_swagger
+$ gem install openstax_openapi
 ```
 
 ## Generating client libraries
 
 ```ruby
-OpenStax::Swagger.configure do |config|
+OpenStax::OpenApi.configure do |config|
   config.client_language_configs = {
     ruby: lambda do |version|
       {
@@ -46,7 +46,7 @@ OpenStax::Swagger.configure do |config|
     end
   }
   config.client_language_post_processing = {
-    javascript: -> (options) { OpenStax::Swagger::BundleJsClient.bundle(options) }
+    javascript: -> (options) { OpenStax::OpenApi::BundleJsClient.bundle(options) }
   }
 end
 ```
@@ -57,9 +57,9 @@ end
 
 ...
 
-### `swagger_path_and_parameters_schema`
+### `openapi_path_and_parameters_schema`
 
-`swagger_path_and_parameters_schema` has the same arguments as the native `swagger_path` method but in addition to generating a swagger path definition, it will also call `swagger_schema` on the query parameters to let developers generate a binding from this schema to bind to parameters in a controller call (i.e. they can let swagger-codegen generate code that will validate the incoming parameters instead of replicating validity checks in the schema and in the controller).  Probably only works for simple parameters, not parameters with nested schemas.
+`openapi_path_and_parameters_schema` has the same arguments as the native `openapi_path` method but in addition to generating a openapi path definition, it will also call `openapi_schema` on the query parameters to let developers generate a binding from this schema to bind to parameters in a controller call (i.e. they can let openapi-codegen generate code that will validate the incoming parameters instead of replicating validity checks in the schema and in the controller).  Probably only works for simple parameters, not parameters with nested schemas.
 
 ## Contributing
 Contribution directions go here.

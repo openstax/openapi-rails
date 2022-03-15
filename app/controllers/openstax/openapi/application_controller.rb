@@ -1,4 +1,4 @@
-module OpenStax::Swagger
+module OpenStax::OpenApi
   class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
   end

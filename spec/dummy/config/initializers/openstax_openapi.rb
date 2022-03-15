@@ -1,6 +1,6 @@
-OpenStax::Swagger.configure do |config|
+OpenStax::OpenApi.configure do |config|
   config.json_proc = -> (api_major_version) {
-    Swagger::Blocks.build_root_json(
+    OpenApi::Blocks.build_root_json(
       [
         SchemaOne
       ]

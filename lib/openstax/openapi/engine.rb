@@ -3,9 +3,9 @@ ActiveSupport::Inflector.inflections do |inflect|
 end
 
 module OpenStax
-  module Swagger
+  module OpenApi
     class Engine < ::Rails::Engine
-      isolate_namespace OpenStax::Swagger
+      isolate_namespace OpenStax::OpenApi
 
       config.generators do |g|
         g.test_framework :rspec

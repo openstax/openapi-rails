@@ -3,7 +3,7 @@ require 'ostruct'
 
 RSpec.describe 'bind' do
 
-  include OpenStax::Swagger::Bind
+  include OpenStax::OpenApi::Bind
 
   context 'schema one' do
 
@@ -54,16 +54,16 @@ RSpec.describe 'bind' do
       expect(binding).not_to be_valid
     end
 
-    xit 'can check for deep invalidity' do
-      # Here the array items nested down a few levels are invalid, but the `.valid?` check
-      # on the top level bound item doesn't recursively check validity, so it goes unnoticed.
-      # If we want to use the bindings for schema validation, we'll need a way to get around
-      # this.  Or we should use a separate schema validator.
+    # xit 'can check for deep invalidity' do
+    #   # Here the array items nested down a few levels are invalid, but the `.valid?` check
+    #   # on the top level bound item doesn't recursively check validity, so it goes unnoticed.
+    #   # If we want to use the bindings for schema validation, we'll need a way to get around
+    #   # this.  Or we should use a separate schema validator.
 
-      valid_params[:a_defined_object][:an_array] = %w(yo yo ma)
-      binding, error = bind(valid_params, Api::V0::Bindings::TopLevel)
-      expect(error).not_to be_nil
-    end
+    #   valid_params[:a_defined_object][:an_array] = %w(yo yo ma)
+    #   binding, error = bind(valid_params, Api::V0::Bindings::TopLevel)
+    #   expect(error).not_to be_nil
+    # end
 
   end
 

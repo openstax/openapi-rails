@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'swagger_path_and_parameters_schema' do
+RSpec.describe 'openapi_path_and_parameters_schema' do
 
   it 'generates open api version 3 path and components definitions' do
-    json = Swagger::Blocks.build_root_json([SwaggerPathAndParametersSchema1])
+    json = Swagger::Blocks.build_root_json([OpenApiPathAndParametersSchema1])
+
     expect(json[:paths]).to include({
       :"/stembolts" => hash_including({
         get: hash_including({
@@ -34,7 +35,7 @@ RSpec.describe 'swagger_path_and_parameters_schema' do
   end
 
   it 'works when there are two path calls' do
-    json = Swagger::Blocks.build_root_json([SwaggerPathAndParametersSchema2])
+    json = Swagger::Blocks.build_root_json([OpenApiPathAndParametersSchema2])
 
     expect(json[:paths]).to include({
       :"/stembolts" => hash_including({
@@ -45,14 +46,13 @@ RSpec.describe 'swagger_path_and_parameters_schema' do
       })
     })
 
-    expect(json[:definitions]).to include({
-      "GetStemboltsParameters" => {
-        properties: {
-          param1: {type: :string},
-          param2: {type: :string, description: "Not param1"}
-        },
-        required: ["param1"]
-      }
+    expect(json[:paths][:'/stembolts']).to include({
+      :get => hash_including({
+        parameters: array_including(
+          {:name=>:param1, :in=>:query, :type=>:string},
+          {:name=>:param2, :in=>:query, :type=>:string, description: "Not param1"}
+        )
+      })
     })
   end
 

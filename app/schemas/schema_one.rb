@@ -1,10 +1,10 @@
 class SchemaOne
   include Swagger::Blocks
-  include OpenStax::Swagger::SwaggerBlocksExtensions
+  include OpenStax::OpenApi::SwaggerBlocksExtensions
 
   BASE_PATH = '/api/v0'
 
-  swagger_root do
+  openapi_root do
     key :openapi, '3.0.0'
     info do
       key :version, '0.1.0'

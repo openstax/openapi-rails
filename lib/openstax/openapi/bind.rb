@@ -1,4 +1,4 @@
-module OpenStax::Swagger
+module OpenStax::OpenApi
   module Bind
 
     protected
