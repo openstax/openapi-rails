@@ -15,6 +15,7 @@ jobs:
         rails:
           - RAILS_VERSION=5.2
           - RAILS_VERSION=6.0
+          - RAILS_VERSION=7.0
 
     steps:
       - uses: actions/checkout@v2
