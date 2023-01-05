@@ -16,7 +16,7 @@ namespace :openstax_openapi do
     raise "Must specify a language, e.g. ruby" if language.nil?
     output_dir = nil
 
-    OpenStax::OpenApi::Codegen.execute(api_major_version) do |json|
+    OpenStax::OpenApi::Codegen.execute(language, api_major_version) do |json|
       api_exact_version = json[:info][:version]
       output_dir = "#{Rails.application.root}/clients/#{api_exact_version}/#{language}"
 

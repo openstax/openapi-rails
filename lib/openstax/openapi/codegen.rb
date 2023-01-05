@@ -6,9 +6,9 @@ module OpenStax::OpenApi::Codegen
   # You can find flags for various configs by running:
   # swagger-codegen config-help -g <language>
 
-  def self.execute(api_major_version)
+  def self.execute(language, api_major_version)
 
-    swagger_data = OpenStax::OpenApi.configuration.json_proc.call(api_major_version)
+    swagger_data = OpenStax::OpenApi.configuration.json_proc.call(language, api_major_version)
 
     options = yield swagger_data
 
