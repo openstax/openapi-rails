@@ -16,7 +16,7 @@ namespace :openstax_openapi do
       api_exact_version = json[:info][:version]
       output_dir = "#{Rails.application.root}/tmp/ruby-models/#{api_exact_version}"
 
-      # Clean out anything that use to be there so old bindings do come back to life
+      # Clean out anything that use to be there so old bindings do not come back to life
       FileUtils.rm_rf(output_dir)
 
       {
